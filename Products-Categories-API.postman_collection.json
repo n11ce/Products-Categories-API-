@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "bb706c55-6655-4763-ba65-f99f7c8506c8",
+		"name": "Products-Categories-API",
+		"description": "[https://github.com/n11ce/Products-Categories-API-](https://github.com/n11ce/Products-Categories-API-)\n\n# 📦 Laravel Products & Categories API\n\nA simple **RESTful API** built with Laravel that demonstrates **Products and Categories management** with authentication and authorization.  \nThe project follows the **MVC structure** and includes validation, migrations, and seeders.\n\n---\n\n## 🚀 Features\n\n- **Authentication** with Laravel Sanctum (register, login, logout)\n    \n- **Products CRUD**\n    \n    - Stock must be greater than `0` when creating/updating\n        \n    - Price is stored in both **TL** and **EUR**\n        \n- **Categories CRUD**\n    \n    - When a category is deleted, its products are automatically moved to the **General** category\n        \n- **Authorization**\n    \n    - Only **Admin** users can delete products or categories\n        \n- **JSON Responses** for all API requests\n    \n- **Migration & Seeder** included\n    \n- Well-commented code for clarity\n    \n\n---\n\n## ⚙️ Installation\n\n1. git clone https://github.com/your-username/laravel-products-api.gitcd laravel-products-api\n    \n2. composer install\n    \n3. cp .env.example .env\n    \n4. php artisan key:generate\n    \n5. php artisan migrate --seed\n    \n6. php artisan serve\n    \n\n---\n\n## 🔑 Authentication\n\nThis project uses **Sanctum** for API authentication.  \nYou need to register or login first to get an API token.\n\n### Register\n\n'POST /api/register'\n\n```\n{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password\",\n  \"role\": \"admin\"\n}\n\n ```\n\n### Login\n\n'POST /api/login'\n\n```\n{\n  \"email\": \"test@example.com\",\n  \"password\": \"password\"\n}\n\n ```\n\nResponse:\n\n```\n{\n  \"user\": { \"id\": 1, \"name\": \"Test User\", \"role\": \"admin\" },\n  \"token\": \"YOUR_API_TOKEN\"\n}\n\n ```\n\nFor all subsequent requests, send the token in the header:\n\n```\nAuthorization: Bearer YOUR_API_TOKEN\n\n ```\n\n---\n\n## 📚 API Endpoints\n\n### Products\n\n- `GET /api/products` – List products\n    \n- `POST /api/products` – Create a product (stock > 0 required)\n    \n- `GET /api/products/{id}` – Show product details\n    \n- `PUT /api/products/{id}` – Update product\n    \n- `DELETE /api/products/{id}` – Delete product (**admin only**)\n    \n\n### Categories\n\n- `GET /api/categories` – List categories\n    \n- `POST /api/categories` – Create a category\n    \n- `GET /api/categories/{id}` – Show category\n    \n- `PUT /api/categories/{id}` – Update category\n    \n- `DELETE /api/categories/{id}` – Delete category (**admin only, products moved to “General”)**\n    \n\n---\n\n## 👨‍💻 Tech Stack\n\n- **Laravel 10+**\n    \n- **MySQL**\n    \n- **Sanctum** (API Authentication)\n    \n- **PHP 8.1+**\n    \n\n---\n\n## 📤 Contribution\n\nFeel free to fork this repository and submit pull requests. 🚀\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42715146"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": []
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Categories List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorie Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/?name=deneme&slug=deneme aciklama",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "deneme"
+								},
+								{
+									"key": "slug",
+									"value": "deneme aciklama"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorie Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/5?name=kategori",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "kategori"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorie Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login?email=admin@example.com&password=password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@example.com"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@example.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Hüseyin",
+							"disabled": true
+						},
+						{
+							"key": "role",
+							"value": "adminn",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "deneme ürünü",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "deneme",
+							"disabled": true
+						},
+						{
+							"key": "stock",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "price_tl",
+							"value": "100",
+							"disabled": true
+						},
+						{
+							"key": "price_eur",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register?name=hüseyin seker&email=huso@gmail.com&password=123123&role=admin",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "hüseyin seker"
+						},
+						{
+							"key": "email",
+							"value": "huso@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "123123"
+						},
+						{
+							"key": "role",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "JE6YpFrF5OjQCCdHBRUakD3dCuhvml0ceWBh6Rckae890384",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
