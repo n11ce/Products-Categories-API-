@@ -20,7 +20,7 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
@@ -52,73 +52,70 @@
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
                 <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                    <h1 class="mb-1 font-medium">Let's get started</h1>
-                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">Laravel has an incredibly rich ecosystem. <br>We suggest starting with the following.</p>
-                    <ul class="flex flex-col mb-4 lg:mb-6">
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Read the
-                                <a href="https://laravel.com/docs" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Documentation</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Watch video tutorials at
-                                <a href="https://laracasts.com" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Laracasts</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                    </ul>
-                    <ul class="flex gap-3 text-sm leading-normal">
-                        <li>
-                            <a href="https://cloud.laravel.com" target="_blank" class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
-                                Deploy now
-                            </a>
-                        </li>
-                    </ul>
+                    <h1 class="mb-4 font-medium">Basit Yönetim Arayüzü</h1>
+
+                    <div id="ui" class="space-y-4">
+                        <div id="authSection" class="border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-sm p-4">
+                            <h2 class="font-medium mb-2">Kimlik Doğrulama</h2>
+                            <div class="grid gap-3">
+                                <form id="registerForm" class="grid gap-2">
+                                    <div class="grid gap-1">
+                                        <input id="reg_name" placeholder="Ad Soyad" class="border px-5 py-1.5 rounded-sm" />
+                                        <input id="reg_email" type="email" placeholder="E-posta" class="border px-5 py-1.5 rounded-sm" />
+                                        <input id="reg_password" type="password" placeholder="Şifre" class="border px-5 py-1.5 rounded-sm" />
+                                    </div>
+                                    <button class="inline-block px-5 py-1.5 bg-[#1b1b18] text-white rounded-sm">Kayıt Ol</button>
+                                </form>
+                                <form id="loginForm" class="grid gap-2">
+                                    <div class="grid gap-1">
+                                        <input id="login_email" type="email" placeholder="E-posta" class="border px-5 py-1.5 rounded-sm" />
+                                        <input id="login_password" type="password" placeholder="Şifre" class="border px-5 py-1.5 rounded-sm" />
+                                    </div>
+                                    <div class="flex gap-2 items-center">
+                                        <button class="inline-block px-5 py-1.5 bg-[#1b1b18] text-white rounded-sm">Giriş Yap</button>
+                                        <button id="logoutBtn" type="button" class="inline-block px-5 py-1.5 border rounded-sm">Çıkış Yap</button>
+                                    </div>
+                                </form>
+                                <div class="text-[13px] text-[#706f6c] dark:text-[#A1A09A] break-all" id="tokenBox"></div>
+                            </div>
+                        </div>
+
+                        <div id="appSections" style="display:none;" class="space-y-4">
+                        <div class="border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-sm p-4">
+                            <h2 class="font-medium mb-2">Kategoriler</h2>
+                            <div class="flex gap-2 mb-2">
+                                <button id="btnLoadCategories" class="px-5 py-1.5 border rounded-sm">Listele</button>
+                            </div>
+                            <form id="categoryForm" class="grid gap-2 mb-2">
+                                <input id="cat_name" placeholder="Kategori Adı" class="border px-5 py-1.5 rounded-sm" />
+                                <input id="cat_slug" placeholder="Slug" class="border px-5 py-1.5 rounded-sm" />
+                                <button class="inline-block px-5 py-1.5 bg-[#1b1b18] text-white rounded-sm">Ekle</button>
+                            </form>
+                            <ul id="categories" class="text-[13px] grid gap-1"></ul>
+                        </div>
+
+                        <div class="border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-sm p-4">
+                            <h2 class="font-medium mb-2">Ürünler</h2>
+                            <div class="flex gap-2 mb-2">
+                                <button id="btnLoadProducts" class="px-5 py-1.5 border rounded-sm">Listele</button>
+                            </div>
+                            <form id="productForm" class="grid gap-2 mb-2">
+                                <input id="pr_title" placeholder="Başlık" class="border px-5 py-1.5 rounded-sm" />
+                                <textarea id="pr_description" placeholder="Açıklama" class="border px-5 py-1.5 rounded-sm"></textarea>
+                                <input id="pr_stock" type="number" placeholder="Stok" class="border px-5 py-1.5 rounded-sm" />
+                                <div class="grid gap-2" style="grid-template-columns: 1fr 1fr;">
+                                    <input id="pr_price_tl" type="number" step="0.01" placeholder="Fiyat (TL)" class="border px-5 py-1.5 rounded-sm" />
+                                    <input id="pr_price_eur" type="number" step="0.01" placeholder="Fiyat (EUR)" class="border px-5 py-1.5 rounded-sm" />
+                                </div>
+                                <input id="pr_category_id" type="number" placeholder="Kategori ID" class="border px-5 py-1.5 rounded-sm" />
+                                <button class="inline-block px-5 py-1.5 bg-[#1b1b18] text-white rounded-sm">Ekle</button>
+                            </form>
+                            <ul id="products" class="text-[13px] grid gap-1"></ul>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
+                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden hidden">
                     {{-- Laravel Logo --}}
                     <svg class="w-full text-[#F53003] dark:text-[#F61500] transition-all translate-y-0 opacity-100 max-w-none duration-750 starting:opacity-0 starting:translate-y-6" viewBox="0 0 438 104" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.2036 -3H0V102.197H49.5189V86.7187H17.2036V-3Z" fill="currentColor" />
@@ -270,8 +267,154 @@
             </main>
         </div>
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
+        <div class="h-14.5 hidden lg:block"></div>
+        <script>
+        (function() {
+            const apiBase = '/api';
+            let token = localStorage.getItem('api_token') || '';
+            const tokenBox = document.getElementById('tokenBox');
+            function showToken() {
+                tokenBox.textContent = token ? 'Token: ' + token : 'Token yok. Lütfen giriş yapın.';
+            }
+            showToken();
+            function updateUI() {
+                const authEl = document.getElementById('authSection');
+                const appEl = document.getElementById('appSections');
+                if (token) {
+                    authEl.style.display = 'none';
+                    appEl.style.display = '';
+                } else {
+                    authEl.style.display = '';
+                    appEl.style.display = 'none';
+                }
+            }
+            updateUI();
+
+            async function apiFetch(path, options = {}) {
+                const headers = Object.assign({ 'Content-Type': 'application/json' }, options.headers || {});
+                if (token) headers['Authorization'] = 'Bearer ' + token;
+                const res = await fetch(apiBase + path, Object.assign({}, options, { headers }));
+                if (!res.ok) {
+                    const msg = await res.text();
+                    throw new Error(msg || ('HTTP ' + res.status));
+                }
+                const ct = res.headers.get('content-type') || '';
+                return ct.includes('application/json') ? res.json() : res.text();
+            }
+
+            document.getElementById('registerForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    const body = {
+                        name: document.getElementById('reg_name').value,
+                        email: document.getElementById('reg_email').value,
+                        password: document.getElementById('reg_password').value
+                    };
+                    const data = await apiFetch('/register', { method: 'POST', body: JSON.stringify(body) });
+                    token = data?.data?.token || '';
+                    localStorage.setItem('api_token', token);
+                    showToken();
+                    alert('Kayıt başarılı');
+                    updateUI();
+                } catch (err) {
+                    alert('Kayıt hatası: ' + err.message);
+                }
+            });
+
+            document.getElementById('loginForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    const body = {
+                        email: document.getElementById('login_email').value,
+                        password: document.getElementById('login_password').value
+                    };
+                    const data = await apiFetch('/login', { method: 'POST', body: JSON.stringify(body) });
+                    token = data?.data?.token || '';
+                    localStorage.setItem('api_token', token);
+                    showToken();
+                    alert('Giriş başarılı');
+                    updateUI();
+                } catch (err) {
+                    alert('Giriş hatası: ' + err.message);
+                }
+            });
+
+            document.getElementById('logoutBtn').addEventListener('click', async () => {
+                try {
+                    await apiFetch('/logout', { method: 'POST' });
+                } catch (_) {}
+                token = '';
+                localStorage.removeItem('api_token');
+                showToken();
+                alert('Çıkış yapıldı');
+                updateUI();
+            });
+
+            // Categories
+            async function loadCategories() {
+                try {
+                    const list = await apiFetch('/categories');
+                    const ul = document.getElementById('categories');
+                    ul.innerHTML = '';
+                    list.forEach((c) => {
+                        const li = document.createElement('li');
+                        li.textContent = '#' + c.id + ' ' + c.name + ' (' + (c.products_count ?? 0) + ')';
+                        ul.appendChild(li);
+                    });
+                } catch (err) {
+                    alert('Kategori yükleme hatası: ' + err.message);
+                }
+            }
+            document.getElementById('btnLoadCategories').addEventListener('click', loadCategories);
+            document.getElementById('categoryForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    const body = {
+                        name: document.getElementById('cat_name').value,
+                        slug: document.getElementById('cat_slug').value
+                    };
+                    await apiFetch('/categories', { method: 'POST', body: JSON.stringify(body) });
+                    await loadCategories();
+                } catch (err) {
+                    alert('Kategori ekleme hatası: ' + err.message);
+                }
+            });
+
+            // Products
+            async function loadProducts() {
+                try {
+                    const resp = await apiFetch('/products');
+                    const items = resp?.data || [];
+                    const ul = document.getElementById('products');
+                    ul.innerHTML = '';
+                    items.forEach((p) => {
+                        const li = document.createElement('li');
+                        li.textContent = '#' + p.id + ' ' + p.title + ' | Stok: ' + p.stock + ' | TL: ' + p.price_tl + ' | EUR: ' + p.price_eur + ' | Kategori: ' + (p.category?.name || p.category_id);
+                        ul.appendChild(li);
+                    });
+                } catch (err) {
+                    alert('Ürün yükleme hatası: ' + err.message);
+                }
+            }
+            document.getElementById('btnLoadProducts').addEventListener('click', loadProducts);
+            document.getElementById('productForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    const body = {
+                        title: document.getElementById('pr_title').value,
+                        description: document.getElementById('pr_description').value,
+                        stock: Number(document.getElementById('pr_stock').value || 0),
+                        price_tl: Number(document.getElementById('pr_price_tl').value || 0),
+                        price_eur: Number(document.getElementById('pr_price_eur').value || 0),
+                        category_id: Number(document.getElementById('pr_category_id').value)
+                    };
+                    await apiFetch('/products', { method: 'POST', body: JSON.stringify(body) });
+                    await loadProducts();
+                } catch (err) {
+                    alert('Ürün ekleme hatası: ' + err.message);
+                }
+            });
+        })();
+        </script>
     </body>
 </html>

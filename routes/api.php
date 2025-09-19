@@ -10,11 +10,11 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::apiResource('products', ProductController::class);
 
     // Kategoriler
-    Route::apiResource('categories', CategoryController::class)->except(['create','edit']);
+    Route::apiResource('categories', CategoryController::class);
 
-    // Delete için admin middleware
-    Route::delete('products/{product}', [ProductController::class,'destroy'])->middleware('ensure.admin');
-    Route::delete('categories/{category}', [CategoryController::class,'destroy'])->middleware('ensure.admin');
+    // Delete operations (removed admin middleware for now)
+    // Route::delete('products/{product}', [ProductController::class,'destroy'])->middleware('ensure.admin');
+    // Route::delete('categories/{category}', [CategoryController::class,'destroy'])->middleware('ensure.admin');
 
     // Logout
     Route::post('logout', [AuthController::class,'logout'])->name('logout');

@@ -14,7 +14,8 @@ public function authorize() { return true; }
 
 public function rules()
 {
-$id = $this->route('category');
+$category = $this->route('category');
+$id = $category ? $category->id : null;
 return [
 'name' => 'sometimes|required|string|max:255',
 'slug' => "sometimes|required|string|max:255|unique:categories,slug,{$id}",

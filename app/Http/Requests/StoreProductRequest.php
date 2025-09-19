@@ -21,7 +21,7 @@ public function rules()
 return [
 'title' => 'required|string|max:255',
 'description' => 'nullable|string',
-'stock' => 'required|integer|min:1',
+'stock' => 'required|integer|min:0',
 'price_tl' => 'required|numeric|min:0',
 'price_eur' => 'required|numeric|min:0',
 'category_id' => 'required|exists:categories,id',
